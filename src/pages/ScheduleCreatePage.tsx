@@ -166,6 +166,34 @@ export default function ScheduleCreatePage() {
                 >
                     Добавить факультет
                 </button>
+
+                <button
+                    className="mt-2 bg-blue-500 text-white p-2 rounded"
+                    onClick={() => {
+                        schedule.forEach(faculty => {
+                            faculty.groups.forEach((value, index) => {
+                                const ats = [0, 1, 2, 3]
+                                ats.forEach(value1 => {
+                                    setSchedule((prevSchedule) => {
+                                        const lesson = {
+                                            id: -1,
+                                            name: "Тестовая пара",
+                                            teachers: ["Тестовый преподаватель"],
+                                            cabinets: ["52"],
+                                        }
+                                        const updatedSchedule = [...prevSchedule];
+                                        const group = updatedSchedule.flatMap(faculty => faculty.groups)[index];
+                                        lesson.id = group.lessons.length + 1
+                                        group.lessons.push(lesson);
+                                        return updatedSchedule;
+                                    });
+                                })
+                            })
+                        })
+                    }}
+                >
+                    Добавить тестовые пары (не для прода)
+                </button>
             </div>
 
             {/* Список добавленных факультетов и групп */}

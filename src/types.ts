@@ -8,6 +8,19 @@ export interface FacultyDTO {
     name: string;
 }
 
+export interface LessonDTO {
+    lessonName: string;
+    teachers: string[];
+    cabinets: string[];
+}
+
+export interface ScheduleDayDTO {
+    id: string;
+    time: string;
+    intervalId: number;
+    lessons: LessonDTO[];
+}
+
 export const teachersList = [
     "Мальцев Р.В.",
     "Слепцова Ю.Г.",

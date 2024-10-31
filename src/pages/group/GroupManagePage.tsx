@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useParams, useSearchParams, useNavigate} from 'react-router-dom';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // Не забудьте добавить стили
+import 'react-calendar/dist/Calendar.css';
 import api from '../../api/axios';
 
 interface ScheduleDay {
@@ -10,7 +10,7 @@ interface ScheduleDay {
 }
 
 const GroupManagePage: React.FC = () => {
-    const { groupId } = useParams<{ groupId: string }>();
+    const {groupId} = useParams<{ groupId: string }>();
     const [searchParams] = useSearchParams();
     const pageName = searchParams.get("gn");
     const [scheduleDays, setScheduleDays] = useState<ScheduleDay[]>([]);
@@ -38,7 +38,7 @@ const GroupManagePage: React.FC = () => {
         }
     };
 
-    const tileClassName = ({ date }: { date: Date }) => {
+    const tileClassName = ({date}: { date: Date }) => {
         return highlightedDates.some(d => d.toDateString() === date.toDateString()) ? 'highlighted' : '';
     };
 

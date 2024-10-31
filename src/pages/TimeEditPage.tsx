@@ -83,11 +83,14 @@ export default function TimeEditPage() {
                 isOpen={isModalOpen}
                 onClose={closeModal}
                 onAddLessonTime={(data) => {
+                    console.log(data)
                     api.post('/admin/times/create', {
-                        name: (data as LessonTime).name,    // Отправляем название
-                        times: (data as LessonTime).times // Отправляем интервалы
-                    });
-                    window.location.reload()
+                        name: (data as LessonTime).name,
+                        times: (data as LessonTime).times
+                    }).then(value => {
+                        alert(value.status)
+                        window.location.reload()
+                    })
                 }}
             />
         </div>
