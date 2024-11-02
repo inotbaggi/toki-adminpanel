@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080/api/v1',
+    baseURL: 'https://furina.qubixmc.net/api/v1',
 });
 
 api.interceptors.request.use((config) => {
