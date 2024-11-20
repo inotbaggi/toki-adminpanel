@@ -14,6 +14,14 @@ export interface LessonDTO {
     cabinets: string[];
 }
 
+export interface TeacherDTO {
+    id: number;
+    firstName: string;
+    lastName: string;
+    patronymic: string;
+    lessons: string[];
+}
+
 export interface ScheduleDayDTO {
     id: string;
     time: string;
