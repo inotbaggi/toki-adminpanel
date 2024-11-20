@@ -31,6 +31,17 @@ const GroupSchedulePage: React.FC = () => {
             ) : (
                 <p>Загрузка...</p>
             )}
+            <div className="text-red-500 hover:text-red-400 cursor-pointer" onClick={async () => {
+                try {
+                    const response = await api.delete(`/admin/schedule/delete/${scheduleDay?.id}`)
+                    if (response.status == 200) {
+                        window.location.href = "/"
+                    }
+                } catch (e) {
+                    console.log(e)
+                }
+            }}>Удалить расписание на этот день
+            </div>
         </div>
     );
 };
